@@ -4,12 +4,12 @@ class simpleAi{
 
   }
 
-  static getMove(){
-
+  static getMove(cords, path){
+// Get Move should return true or false if open
   }
 
-  static update(){
-
+  static update(cordsA, cordsB, dungeon){
+// Update should move the monster from one cell to another
   }
 }
 
