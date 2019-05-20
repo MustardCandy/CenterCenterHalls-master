@@ -1,13 +1,17 @@
 class Move {
-  static _makePath(){
+  //cannot always go diagonal but always goes diagonal first
+  //only return the step
+  static _makePath(cordsA, cordsB){
 
   }
 
-  static _getMove(){
+  //only checks if its open
+  static _getMove(cords, path){
 
   }
 
-  static update(){
+  //call the other two static functions
+  static update(cordsA, cordsB, dungeon){
 
   }
 }
