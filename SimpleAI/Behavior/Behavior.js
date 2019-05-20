@@ -12,6 +12,7 @@ class Move {
 
   //call the other two static functions
   static update(cordsA, cordsB, dungeon){
-
+    _makePath();
+    _getMove();
   }
 }
