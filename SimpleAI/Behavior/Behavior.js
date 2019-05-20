@@ -9,7 +9,7 @@ class simpleAi(){
 
 // only has to check if its open
   static getMove(cords, path){
-
+    
   }
 
 //calls the other two functions
