@@ -1,6 +1,9 @@
 class simpleAi{
   static _makePath(){
+    if(){
 
+    }
+    return ;
   }
 
   static getMove(cords, path){
@@ -10,7 +13,8 @@ class simpleAi{
 
   static update(cordsA, cordsB, dungeon){
     // Update should move the monster from one cell to another
-
+    _makePath();
+    _getMove(cords, path);
   }
 }
 
