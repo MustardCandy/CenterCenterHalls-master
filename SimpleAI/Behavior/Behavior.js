@@ -18,23 +18,3 @@ class simpleAi{
     _getMove(cords, path);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
