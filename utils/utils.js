@@ -1,5 +1,7 @@
 // todo - type check in class?
 
+// return -1, +1, or 0
+
 class Utils {
   /* A set of utility functions for generating items assocated with the production
      of 2d maps and items for it.
@@ -278,5 +280,9 @@ class Utils {
       }
       return -1;
     }
-
+    static shift(val){
+      if(val===0){
+        return 0;
+    }
+    return val/Math.abs(val);
 }
