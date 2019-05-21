@@ -1,12 +1,13 @@
 class simpleAi{
-  static _makePath(){
+  static _makePath(cordsA, cordsB){
+    //Make Path should make the path, diagonal first, return the first step only
     if(){
 
     }
     return ;
   }
 
-  static getMove(cords, path){
+  static getMove(cords, path, dungeon){
     // Get Move should return true or false if open
 
   }
