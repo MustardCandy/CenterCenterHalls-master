@@ -7,8 +7,8 @@ class Move {
 
   //only checks if its open
   static _getMove(cords, path){
-    if () {
-
+    if (dungeon.map.cell.open()) {
+      return true;
     }
   }
 
