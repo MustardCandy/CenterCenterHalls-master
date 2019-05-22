@@ -279,4 +279,12 @@ class Utils {
       return -1;
     }
 
+    static shift(val){
+  if (val===0) {
+    return 0;
+  }
+  return val/Math.abs(val);
+}
+
+
 }
