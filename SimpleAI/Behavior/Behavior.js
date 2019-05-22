@@ -8,12 +8,12 @@ class SimpleAI {
 
   //only checks if its open
   static _getMove(cords, dungeon){
-    return dungeon.map.cell[cords.y][cords.x].open();
+    return dungeon.map.cell[cords.y][cords.x].open;
   }
 
   //call the other two static functions
-  static update(cordsA, cordsB, dungeon){
-    _makePath(cordsA, cordsB);
-    _getMove(cords, path);
+  static update(start, end, cords, dungeon){
+    this._makePath(start, end);
+    this._getMove(cords, dungeon);
   }
 }
