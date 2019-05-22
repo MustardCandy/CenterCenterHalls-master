@@ -7,8 +7,8 @@ class SimpleAI {
   }
 
   //only checks if its open
-  static _getMove(dungeon, path){
-    return dungeon.map.cell[dungeon.y][dungeon.x].open();
+  static _getMove(cords, dungeon){
+    return dungeon.map.cell[cords.y][cords.x].open();
   }
 
   //call the other two static functions
