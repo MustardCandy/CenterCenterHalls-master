@@ -2,7 +2,7 @@ class SimpleAI {
   //cannot always go diagonal but always goes diagonal first
   //only return the step
   static _makePath(start, end){
-    var move = {x: Utils.shift(end.x - start.x), y: Utils.shift(end.y - start.y)}
+    var move = {x: Utils.shift(dungeon.hero.location.x - start.x), y: Utils.shift(dungeon.hero.location.y - start.y)}
     return {x: start.x + move.x, y: start.y + move.x}
   }
 
@@ -13,7 +13,8 @@ class SimpleAI {
 
   //call the other two static functions
   static update(start, end, cords, dungeon){
-    this._makePath(start, end);
+    this._makePath(start, dungeon.hero.location);
     this._getMove(cords, dungeon);
+    //for hw, need if statement and for loop to remove monster from cell
   }
 }
