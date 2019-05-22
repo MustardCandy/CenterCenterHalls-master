@@ -3,14 +3,12 @@ class SimpleAI {
   //only return the step
   static _makePath(start, end){
     var move = {x: Utils.shift(end.x - start.x), y: Utils.shift(end.y - start.y)}
-    return {x: start.x - move.x, y: start.y - move.x}
+    return {x: start.x + move.x, y: start.y + move.x}
   }
 
   //only checks if its open
-  static _getMove(cords, path){
-    if (dungeon.map.cell.open()) {
-      return true;
-    }
+  static _getMove(dungeon, path){
+    return dungeon.map.cell[dungeon.y][dungeon.x].open();
   }
 
   //call the other two static functions
