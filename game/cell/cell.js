@@ -93,6 +93,15 @@ class Cell{
     return list;
   }
 
+  get monster(){
+    for (var i = 0; i < cell.inventory.list.length; i++) {
+      if(this.inventory[i].type == "monster"){
+        return this.name;
+      }
+    }
+    throw new Error("attemted to get monster from a cell without a monster in it"); 
+  }
+
   toString(){
     if(this.inventory.length > 0){ // check for higest item.index thing in interval
       var bestValue = 0;

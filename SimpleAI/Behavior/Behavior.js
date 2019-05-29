@@ -30,8 +30,14 @@ class simpleAi {
 
 //calls the other two functions
   static update(cordsA, cordsB, cords, dungeon){
+    if(this._getMove(cordsA) == true){
+      dungeon.map.cell[cordsA][cordsA].remove(Monster);
+    }
+    if (this._getMove(cordsB) == true){
+      dungeon.map.cell[cordsB][cordsB].add(Monster);
+      
+    }
     _makePath(cordsA, cordsB);
     _getMove(cords, path, dungeon);
-     updates.innerHTML = "aidan is a big dumm";
   }
 }
