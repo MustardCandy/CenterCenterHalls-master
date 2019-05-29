@@ -16,7 +16,8 @@ class SimpleAI {
 
   //call the other two static functions
   static update(start, end, cords, dungeon){
-    dungeon.map.cell.monster;
+    dungeon.map.cell.remove(Monster);
+    dungeon.map.cell.add(Monster);
     this._makePath(start, dungeon.hero.location);
     this._getMove(cords, dungeon);
     //for hw, need if statement and for loop to remove monster from cell
