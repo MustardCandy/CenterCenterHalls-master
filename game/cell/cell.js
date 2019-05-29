@@ -93,6 +93,15 @@ class Cell{
     return list;
   }
 
+  get monster(){
+    for (var i = 0; i < this.inventory.length; i++) {
+      if (this.inventory[i].type === "monster") {
+        return this.inventory[i].name;
+      }
+      throw new Error("Attempted to get monster out of wrong cell");
+    }
+  }
+
   toString(){
     if(this.inventory.length > 0){ // check for higest item.index thing in interval
       var bestValue = 0;

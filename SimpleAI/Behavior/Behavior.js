@@ -14,15 +14,9 @@ class SimpleAI {
     return dungeon.map.cell[cords.y][cords.x].open;
   }
 
-  static remove(monster){
-    monster = Utils.typeCheck(monster, "str", "Behavior.js.remove")
-    for (var i = 0; i < cell.inventory.length; i++) {
-      if (cell.inventory[i].name === monster) { return cell.inventory.splice(i)[0]; }
-    }
-  }
-
   //call the other two static functions
   static update(start, end, cords, dungeon){
+    dungeon.map.cell.monster;
     this._makePath(start, dungeon.hero.location);
     this._getMove(cords, dungeon);
     //for hw, need if statement and for loop to remove monster from cell
