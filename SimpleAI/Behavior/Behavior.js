@@ -36,6 +36,7 @@ class simpleAi {
     if (this._getMove(cordsB) == true){
       var newcords = _makePath(cordsA, cordsB);
       dungeon.map.cell[newcords][newcords].add(Monster);
+      //kade is a big dumnb and a big chungus 
     }
     _makePath(cordsA, cordsB);
     _getMove(cords, path, dungeon);
