@@ -81,6 +81,10 @@ class Cell{
     return false;
   }
 
+  get monster(){
+    
+  }
+
   // gets a list of all non monsters in the cell, returns that with a length
   get list(){ // student version does not yet remove monsters
     var list = {length: 0};
