@@ -34,8 +34,8 @@ class simpleAi {
       dungeon.map.cell[cordsA][cordsA].remove(Monster);
     }
     if (this._getMove(cordsB) == true){
-      dungeon.map.cell[cordsB][cordsB].add(Monster);
-      
+      var newcords = _makePath(cordsA, cordsB);
+      dungeon.map.cell[newcords][newcords].add(Monster);
     }
     _makePath(cordsA, cordsB);
     _getMove(cords, path, dungeon);
