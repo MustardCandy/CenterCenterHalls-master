@@ -4,7 +4,6 @@
    and tracks them.
 */
 
-
 class Dungeon {
   constructor() {
     this._name = undefined; // pulled from the map if not overridden
@@ -182,5 +181,4 @@ class Dungeon {
 
   get hero(){ return Utils.undefinedCheck(this._hero, "Dungeon.hero"); }
   set hero(value){ Utils.protectionError("Dungeon", "hero"); }
-
 }
