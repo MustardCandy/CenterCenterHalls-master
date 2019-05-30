@@ -113,5 +113,4 @@ class Cell{
     }
     else { return this.name; }
   }
-
 }
