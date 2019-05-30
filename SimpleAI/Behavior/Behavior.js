@@ -5,7 +5,7 @@ class SimpleAI {
       x: Utils.shift(dungeon.hero.location.x - start.x),
       y: Utils.shift(dungeon.hero.location.y - start.y)
     }
-    return {x: start.x + move.x, y: start.y + move.x}
+    return {x: start.x + move.x, y: start.y + move.y}
   }
   // Get Move should: return true or false if open
   static _getMove(cords, dungeon){
