@@ -16,6 +16,7 @@ it should also have an .attack getter that returns a number from min to max from
   }
 
   add(object){ Utils.typeCheck(object, "object", "Monster.add"); }
+  
   remove(name){
     for (var i = 0; i < this.inventory.length; i++) {
       if(this.inventory[i].name == name){ this.inventory.splice(i, 1); }

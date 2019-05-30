@@ -95,7 +95,7 @@ class Cell{
 
   get monster(){
     for (var i = 0; i < this.inventory.length; i++) {
-      if (this.inventory[i].type === "monster") {
+      if (this.inventory[i].type == "monster") {
         return this.inventory[i].name;
       }
       throw new Error("Attempted to get monster out of wrong cell");
