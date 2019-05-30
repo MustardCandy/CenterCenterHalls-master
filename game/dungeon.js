@@ -183,5 +183,4 @@ class Dungeon {
   get hero(){ return Utils.undefinedCheck(this._hero, "Dungeon.hero"); }
   set hero(value){ Utils.protectionError("Dungeon", "hero"); }
 
-
 }
