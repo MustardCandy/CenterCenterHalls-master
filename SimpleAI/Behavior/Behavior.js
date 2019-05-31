@@ -20,3 +20,6 @@ class SimpleAI {
   }
   // Other code changes that will be needed - monster will need a moved property
 }
+class BlindAI {
+  
+}
