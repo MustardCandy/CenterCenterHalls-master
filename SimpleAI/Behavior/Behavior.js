@@ -22,6 +22,9 @@ class SimpleAI {
       monster = dungeon.map.cell[start.y][start.x].remove(monster);
       monster = dungeon.map.cell[newCords.y][newCords.x].add(monster);
       //if it moves return true and if it doesn't, false
+      return true;
+    } else {
+      return false;
     }
   }
 }
