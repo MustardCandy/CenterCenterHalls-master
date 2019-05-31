@@ -4,7 +4,7 @@ class SimpleAI {
   //only return the step
 
   static _makePath(heroCoords, aiCoords){
-    var heroCoords = dungeon.hero.location
+    var heroCoords = dungeon.hero.location;
     var moveX = Utils.shift(heroCoords.x - aiCoords.x);
     var moveY = Utils.shift(heroCoords.y - aiCoords.y);
     var move = {x:moveX,y:moveY}
@@ -20,7 +20,7 @@ class SimpleAI {
 
   //call the other two static functions
   //this updates and then moves the monster across the map
-  static update(aiCoords, dungeon){
+  static _update( dungeon){
       var heroCoords = dungeon.hero.location
       var move = this._makePath(heroCoords,aiCoords);
       //a temp test monster
@@ -41,7 +41,7 @@ class SimpleAI {
       dungeon.map.cell[aiCoords.y][aiCoords.x].remove("tim")
       dungeon.map.map[aiCoords.y][aiCoords.x].add(tim);
       drawMap();
-  }
+  }else{return false}
   }
 
 }
