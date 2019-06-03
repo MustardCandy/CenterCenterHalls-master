@@ -94,12 +94,12 @@ class Cell{
   }
 
   get monster(){
-    for (var i = 0; i < cell.inventory.list.length; i++) {
+    for (var i = 0; i < this.inventory.length; i++) {
       if(this.inventory[i].type == "monster"){
-        return this.name;
+        return this.inventory[i].name;
       }
     }
-    throw new Error("attemted to get monster from a cell without a monster in it"); 
+    throw new Error("attemted to get monster from a cell without a monster in it");
   }
 
   toString(){

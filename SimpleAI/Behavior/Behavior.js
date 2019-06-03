@@ -1,18 +1,18 @@
-class simpleAi {
+class SimpleAi {
   //need hypotinuse
   //connot always go diagonal
   //always go diagonal first
   //only return the next step
-  static _makePath(cordsA, cordsB){
-    var herocords = cordsB;
-    var monstercords = cordsA;
+  static _makePath(location, dungeon){
+    var herocords = dungeon.hero.location;
+    var monstercords = location;
     var loco = undefined;
     var bestValue = 1000000;
     var nums = Utils.coordinateMorphs();
      for (var i = 1; i < nums.length; i++) {
        var tst = {x:nums[i].x + monstercords.x, y:nums[i].y + monstercords.y}
-       var distx = Math.abs(tst.x - monstercords.x);
-       var disty = Math.abs(tst.y - monstercords.y);
+       var distx = Math.abs(tst.x - herocords.x);
+       var disty = Math.abs(tst.y - herocords.y);
        var newValue = distx + disty;
        if(newValue < bestValue){
          bestValue = newValue;
@@ -25,20 +25,26 @@ class simpleAi {
 
 // only has to check if its open
   static _getMove(cords, dungeon){
-   return dungeon.map.cell[cords.x][cords.y].open;
+   return dungeon.map.cell[cords.y][cords.x].open;
   }
 
-//calls the other two functions
-  static update(cordsA, cordsB, cords, dungeon){
-    if(this._getMove(cordsA) == true){
-      dungeon.map.cell[cordsA][cordsA].remove(Monster);
+//calls the other two functions and
+  static _update(dungeon, location){
+    var newcords = this._makePath(location, dungeon);
+    if (this._getMove(newcords, dungeon) == true){
+      var monster = dungeon.map.cell[location.y][location.x].monster;
+      monster = dungeon.map.cell[location.y][location.x].remove(monster);
+      dungeon.map.cell[newcords.y][newcords.x].add(monster);
+      //kade is a big dumnb and a big chungus
+      return true
     }
-    if (this._getMove(cordsB) == true){
-      var newcords = _makePath(cordsA, cordsB);
-      dungeon.map.cell[newcords][newcords].add(Monster);
-      //kade is a big dumnb and a big chungus 
+    else {
+      return false;
     }
-    _makePath(cordsA, cordsB);
-    _getMove(cords, path, dungeon);
   }
+
+  static update(dungeon, location){
+    this._update(dungeon, location);
+  }
+
 }
