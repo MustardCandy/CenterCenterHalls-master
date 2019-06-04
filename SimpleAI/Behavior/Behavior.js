@@ -6,7 +6,7 @@ class SimpleAI {
       x: Utils.shift(dungeon.hero.location.x - start.x),
       y: Utils.shift(dungeon.hero.location.y - start.y)
     }
-    return {x: start.x + move.x, y: start.y + move.x}
+    return {x: start.x + move.x, y: start.y + move.y}
   }
 
   //only checks if its open
@@ -26,5 +26,9 @@ class SimpleAI {
     } else {
       return false;
     }
+  }
+
+  static update(start,dungeon){
+    this._update(start, dungeon);
   }
 }
