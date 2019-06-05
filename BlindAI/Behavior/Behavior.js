@@ -5,6 +5,7 @@ class BlindAI extends SimpleAI{
       return Math.sqrt(Math.pow(start, 2) + Math.pow(dungeon, 2));
     } else {
       //use the a^2 + b^2 = c^2 method but take lowest value
+
     }
   }
 }

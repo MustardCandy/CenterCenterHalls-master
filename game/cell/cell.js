@@ -1,3 +1,4 @@
+
 /* requires: utils.js (Utils)*/
 
 
@@ -66,6 +67,7 @@ class Cell{
   get inventory(){ return this._inventory; }
   set inventory(array){ Utils.protectionError("Cell", "inventory"); }
 
+  // checks for a mob in the cell
   get occupied(){
     for (var i = 0; i < this.inventory.length; i++) {
       if(this.inventory[i].type == "monster"){ return true; }
@@ -73,13 +75,15 @@ class Cell{
     return false;
   }
 
+  // checks if the cell is occupied or not a room/hall cell
   get open(){
     if(this.occupied){ return false; }
     if(this.type === "room" || this.type === "hall"){ return true; }
     return false;
   }
 
-  get list(){
+  // gets a list of all non monsters in the cell, returns that with a length
+  get list(){ // student version does not yet remove monsters
     var list = {length: 0};
     for (var i = 0; i < this.inventory.length; i++) {
       if(this.inventory[i].type !== "monster"){
@@ -92,7 +96,7 @@ class Cell{
 
   get monster(){
     for (var i = 0; i < this.inventory.length; i++) {
-      if (this.inventory[i].type === "monster") {
+      if (this.inventory[i].type == "monster") {
         return this.inventory[i].name;
       }
       throw new Error("Attempted to get monster out of wrong cell");
@@ -113,4 +117,5 @@ class Cell{
     }
     else { return this.name; }
   }
+
 }
