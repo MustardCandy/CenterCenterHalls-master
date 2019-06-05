@@ -1,3 +1,4 @@
+
 class Monster extends Item {
 /*
 constructor(image, name, health, damage, behavior)

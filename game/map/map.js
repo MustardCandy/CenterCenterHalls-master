@@ -1,4 +1,3 @@
-
 /* requires util.js (Util), cell.js (Cell), hall.js (Hall), room.js (Room) */
 
 class Map{
