@@ -1,5 +1,5 @@
 
-class SimpleAI {
+class Simple {
   //cannot always go diagonal but always goes diagonal first
   //only return the step
 
@@ -20,7 +20,7 @@ class SimpleAI {
 
   //call the other two static functions
   //this updates and then moves the monster across the map
-  static _update( dungeon){
+  static _update(dungeon){
       var heroCoords = dungeon.hero.location
       var move = this._makePath(heroCoords,aiCoords);
       //a temp test monster
