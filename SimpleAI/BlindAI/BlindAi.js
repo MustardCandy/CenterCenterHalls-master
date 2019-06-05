@@ -7,6 +7,7 @@ class BlindAI extends Simple {
   }
   //if _firstMoves failes then this function happens
   static _blindMove(aiCoords){
+    var tim = new Monster("+","KoolaidMan",1,{min:1,max:2},"tim");
     var heroLoc = dungeon.hero.location;
     if(this._update == false){
 //gets the movment for the Blind Ai this is not the movment but possible moves
@@ -23,7 +24,10 @@ class BlindAI extends Simple {
         m4 : possibleMove.Right - heroCoords.x}
 //finds the value with the least diffrence
       var nextMov = Math.min(mtoH.m1,mtoH.m2,mtoH.m3,mtoH.m4);
-     aiCoords = aiCoords + nextmov;
+      if(this._makePath == true){
+        aiCoords = aiCoords + nextmove;
+        console.log(aiCoords);
+      }
     }
   }
 }
