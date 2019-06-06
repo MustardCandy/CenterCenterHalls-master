@@ -280,6 +280,15 @@ class Utils {
       }
       return -1;
     }
+
+    static _hypo(start, end){// test with {x: val y:val} for both
+      var changey = location.y - cords.y;
+      var changex = location.x - cords.x;
+      var hypot = Math.pow(changey,2) + Math.pow(changex,2);
+      var hyp = Math.sqrt(hypot);
+      return hyp;
+    }
+
     static shift(val){
       if(val===0){
         return 0;
