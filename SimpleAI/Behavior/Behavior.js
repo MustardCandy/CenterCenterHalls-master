@@ -15,13 +15,20 @@ class SimpleAI {
   }
 
   //call the other two static functions
-  static update(start, dungeon){
+  static _update(start, dungeon){
     var newCords = this._makePath(start, dungeon);
     if (this._getMove(newCords, dungeon) == true) {
       var monster = dungeon.map.cell[start.y][start.x].monster
       monster = dungeon.map.cell[start.y][start.x].remove(monster);
       monster = dungeon.map.cell[newCords.y][newCords.x].add(monster);
       //if it moves return true and if it doesn't, false
+      return true;
+    } else {
+      return false;
     }
+  }
+
+  static update(start,dungeon){
+    this._update(start, dungeon);
   }
 }
