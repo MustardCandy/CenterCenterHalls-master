@@ -17,4 +17,5 @@ class BlindAI extends SimpleAI{
     }
     return cord;
   }
+
 }
