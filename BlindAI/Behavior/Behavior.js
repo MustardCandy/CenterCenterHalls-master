@@ -1,8 +1,8 @@
 class BlindAI extends SimpleAI{
 
-  static _hypo(start, dungeon){
-    var xChange = dungeon.hero.location.x - start.x;
-    var yChange = dungeon.hero.location.y - start.y;
+  static _hypo(start, hero){
+    var xChange = hero.x - start.x;
+    var yChange = hero.y - start.y;
 
     //use the a^2 + b^2 = c^2 method
     return Math.sqrt(Math.pow(xChange, 2) + Math.pow(yChange, 2));
@@ -21,7 +21,7 @@ class BlindAI extends SimpleAI{
 
   static _getNear(start, dungeon){
     var open = this._area(start, dungeon);
-    var hero = dungeon.hero.location
+    var hero = dungeon.hero.location;
     var best = Infinity;
     var index = -1;
     for (var i = 0; i < open.length; i++) {
@@ -32,6 +32,15 @@ class BlindAI extends SimpleAI{
       }
     }
     return open[index];
+  }
+
+  static _chase(start, dungeon){
+    var newCords = this._getNear(start, dungeon);
+    if (this._update(start, dungeon) == false) {
+      var monster = dungeon.map.cell[start.y][start.x].monster;
+      monster = dungeon.map.cell[start.y][start.x].remove(monster);
+      monster = dungeon.map.cell[newCords.y][newCords.x].add(monster);
+    }
   }
 
 //-----------------------------gross code------------------------------------//
