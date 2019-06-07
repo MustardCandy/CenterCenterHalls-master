@@ -1,12 +1,15 @@
+//class that uses SimpleAI but then finds shortest distance to hero
 class BlindAI extends SimpleAI{
 
+  //finds hypotenuse of the triangle made by hero and monster
   static _hypo(start, hero){
     var xChange = hero.x - start.x;
     var yChange = hero.y - start.y;
-
-    //use the a^2 + b^2 = c^2 method
+    //uses the a^2 + b^2 = c^2 method to get hypotenuse
     return Math.sqrt(Math.pow(xChange, 2) + Math.pow(yChange, 2));
   }
+
+  //finds all of the areas that are open around the monster
   static _area(start, dungeon){
     var check = Utils.coordinateMorphs();
     var retArr = [];
@@ -19,6 +22,7 @@ class BlindAI extends SimpleAI{
     return retArr;
   }
 
+  //uses _hypo on all open location and finds the nearest hypotenuse
   static _getNear(start, dungeon){
     var open = this._area(start, dungeon);
     var hero = dungeon.hero.location;
@@ -34,6 +38,7 @@ class BlindAI extends SimpleAI{
     return open[index];
   }
 
+  //puts all functions together and moves the monster
   static _chase(start, dungeon){
     var newCords = this._getNear(start, dungeon);
     if (this._update(start, dungeon) == false) {
