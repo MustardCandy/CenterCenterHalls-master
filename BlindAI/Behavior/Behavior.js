@@ -25,7 +25,7 @@ class BlindAI extends SimpleAI{
     var best = Infinity;
     var index = -1;
     for (var i = 0; i < open.length; i++) {
-      var hypo = this._hypo(open[i], hero)
+      var hypo = this._hypo(open[i], hero);
       if (hypo < best) {
         best = hypo;
         index = i;
@@ -42,17 +42,4 @@ class BlindAI extends SimpleAI{
       monster = dungeon.map.cell[newCords.y][newCords.x].add(monster);
     }
   }
-
-//-----------------------------gross code------------------------------------//
-//   static _chase(start, dungeon){
-//
-//     var check = Utils.coordinateMorphs();
-//     if (this._update(start, dungeon) == false) {
-//       if (dungeon.map.cell[check.y][check.x].open == true) {
-//       }
-//     } else {
-//       //use the a^2 + b^2 = c^2 method but take lowest value
-//       return Math.sqrt(Math.pow(xChange, 2) + Math.pow(yChange, 2));
-//     }
-//   }
 }
