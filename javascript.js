@@ -222,6 +222,23 @@ function listToMenu(list){
   }
   return returnString + "0: Cancel";
 }
+//(image, name, health, damage, behavior){
+  function monsterSpawn(){
+    var monsters{
+      1:{image:"$",name:"Rick",health:10,damage{min:2,max:6}behavior:"blindAI"}
+      2:{image:"+",name:"Morty",health:5,damage{min:1,max:3}behavior:"simpleAI"}
+      3:{image:"X",name:"MPB",health:7,damage{min:3,max:5}behavior:"blindAI"}
+      4:{image:"^",name:"Squanchy",health:13,damage{min:4,max:7}behavior:"simpleAI"}
+      5:{image:"<",name:"Bird Person",health:15,damage{min:4,max:5}behavior:"blindAI"}
+      6:{image:"%",name:"Fart",health:9,damage{min:1,max:8}behavior:"simpleAI"}
+
+
+    }
+
+
+  }
+
+
 
 /*swapDisplay()
 placeholder function for more complex function to come. swaps display of
