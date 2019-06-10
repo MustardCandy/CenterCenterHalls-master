@@ -44,6 +44,14 @@ class SimpleAI {
     return dungeon.map.cell[coordinates.y][coordinates.x].open;
   }
 
+  static heroLoc(dungeon, coordinates){
+      var hero = dungeon.map.hero;
+      var xChange = dungeon.x - hero.x;
+      var yChange = dungeon.y - hero.y;
+      if (xChange <= 1 && yChange <= 1) {
+        //attack that sun-of-a-gun hero
+    }
+  }
 
   static update(dungeon, start){
     this._update(dungeon, start);
