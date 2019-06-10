@@ -27,33 +27,33 @@ var heroPackage = {image: "@",
                    health: {max: 10, current: 10},
                    damage: {min: 2, max: 5}};
 
-var monster1 = {image: "",
-                name: "",
+var monster1 = {image: "A",
+                name: "Aidan",
                 health: {},
                 damage: {}};
 
-var monster2 = {image: "",
-                name: "",
+var monster2 = {image: "D",
+                name: "Dakota",
                 health: {},
                 damage: {}};
 
-var monster3 = {image: "",
-                name: "",
+var monster3 = {image: "J",
+                name: "Jake",
                 health: {},
                 damage: {}};
 
-var monster4 = {image: "",
-                name: "",
+var monster4 = {image: "K",
+                name: "Kade",
                 health: {},
                 damage: {}};
 
-var monster5 = {image: "",
-                name: "",
+var monster5 = {image: "L",
+                name: "La Morie",
                 health: {},
                 damage: {}};
 
-var monster6 = {image: "",
-                name: "",
+var monster6 = {image: "M",
+                name: "Memphis",
                 health: {},
                 damage: {}};
 
