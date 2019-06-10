@@ -10,7 +10,7 @@ class SimpleAi {
     var bestValue = 1000000;
     var nums = Utils.coordinateMorphs();
      for (var i = 1; i < nums.length; i++) {
-       var tst = {x:nums[i].x + monstercords.x, y:nums[i].y + monstercords.y}
+       var tst = {x:nums[i].x + monstercords.x, y:nums[i].y + monstercords.y};
        var distx = Math.abs(tst.x - herocords.x);
        var disty = Math.abs(tst.y - herocords.y);
        var newValue = distx + disty;
@@ -25,17 +25,18 @@ class SimpleAi {
 
 // only has to check if its open
   static _getMove(cords, dungeon){
-   return dungeon.map.cell[cords.y][cords.x].open;
+    var cell = dungeon.map.cell[cords.y][cords.x];
+   return cell.open;
   }
 
 //calls the other two functions and
-  static _update(dungeon, location){
+  static _update(location, dungeon){
     var newcords = this._makePath(location, dungeon);
     if (this._getMove(newcords, dungeon) == true){
       var monster = dungeon.map.cell[location.y][location.x].monster;
       monster = dungeon.map.cell[location.y][location.x].remove(monster);
       dungeon.map.cell[newcords.y][newcords.x].add(monster);
-      //kade is a big dumnb and a big chungus
+      //kade is a big dumb and a big chungus
       return true
     }
     else {
@@ -43,8 +44,8 @@ class SimpleAi {
     }
   }
 
-  static update(dungeon, location){
-    this._update(dungeon, location);
+  static update(location, dungeon){
+    this._update(location, dungeon);
   }
 
 }
