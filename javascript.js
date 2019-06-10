@@ -27,6 +27,36 @@ var heroPackage = {image: "@",
                    health: {max: 10, current: 10},
                    damage: {min: 2, max: 5}};
 
+var monster1 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
+var monster2 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
+var monster3 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
+var monster4 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
+var monster5 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
+var monster6 = {image: "",
+                name: "",
+                health: {},
+                damage: {}};
+
 var gameState = 1; // need to reduce the number of variables here.
 var interact = false;
 var interactCell = null;
