@@ -1,3 +1,4 @@
+
 /* requires util.js (Util), cell.js (Cell), hall.js (Hall), room.js (Room) */
 
 class Map{
@@ -202,6 +203,22 @@ class Map{
       if (this.cell[testCell.y][testCell.x].open) { returnArray.push(testCell); }
     }
     return returnArray;
+  }
+
+  /* update(dungeon)
+  @param dungeon: {object} the dungeon object
+  */
+  update(dungeon){
+    for (var y = 0; y < this.cells.length; y++) {
+      for (var x = 0; x < this.cells[y].length; x++) {
+        this.cells[y][x].update(dungeon, {x: x, y: y});
+      }
+    }
+    for (var y = 0; y < this.cells.length; y++) {
+      for (var x = 0; x < this.cells[y].length; x++) {
+        this.cells[y][x].reset();
+      }
+    }
   }
 
   set name(str){ this._name = Utils.typeCheck(str, "str", "Map.name"); }

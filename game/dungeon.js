@@ -1,4 +1,3 @@
-
 /* requires map.js (Map), room.js (Room), utils.js (Utils), hall.js (Hall),
    cell.js (Cell) hero.js (Hero) and any additional dependancies that they have.
    This class builds the map from the map class adds the hero, loot, and mobs,
@@ -183,6 +182,8 @@ class Dungeon {
 
   get hero(){ return Utils.undefinedCheck(this._hero, "Dungeon.hero"); }
   set hero(value){ Utils.protectionError("Dungeon", "hero"); }
+
+  get cell(){ return this.map.cell; }
 
 
 }

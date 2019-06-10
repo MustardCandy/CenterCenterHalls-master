@@ -1,7 +1,5 @@
 // todo - type check in class?
 
-// return -1, +1, or 0
-
 class Utils {
   /* A set of utility functions for generating items assocated with the production
      of 2d maps and items for it.
@@ -258,7 +256,7 @@ class Utils {
   }
 
   /* coordinateMorphs(coordinates, type="all"):
-  @param type: {string} should be "cardinal", "diagonal", or "all";
+  @param type: {string} should be "base", "diagonal", or "all";
   @return {array} an array of x & y keyed objects for morphing a
   */
   static coordinateMorphs(type="all"){
@@ -281,18 +279,31 @@ class Utils {
       return -1;
     }
 
-    static _hypo(start, end){// test with {x: val y:val} for both
-      var changey = start.y - end.y;
-      var changex = start.x - end.x;
-      var hypot = Math.pow(changey,2) + Math.pow(changex,2);
-      var hyp = Math.sqrt(hypot);
-      return hyp;
+    /* shift(value)
+    @param value: {intiger} a number to be returned as a value from -1 to 1
+    */
+    static shift(value){
+      if(value == 0){ return 0;}
+      return value/Math.abs(value);
     }
 
-    static shift(val){
-      if(val===0){
-        return 0;
+    /* coordinateHypo(start, end)
+    @param start: {object} an x & y keyed starting coordinate
+    @param end: {object} an x & y keyed ending coordinate
+    @return: {int} a value for the Hypotenuse
+    */
+    static coordinateHypo(start, end){ // may need to minus 1 from these for hero loc
+      var xVal = Math.max(start.x, end.x) - Math.min(start.x, end.x);
+      var yVal = Math.max(start.y, end.y) - Math.min(start.y, end.y);
+      return Math.sqrt((xVal * xVal) + (yVal * yVal));
     }
-    return val/Math.abs(val);
-  }
+
+    /* coordinateHeur(start, end)
+    @param start: {object} an x & y keyed starting coordinate
+    @param end: {object} an x & y keyed ending coordinate
+    @return: {int} a value for the Manhattab distance heuristic
+    */
+    static coordinateHeur(start, end){
+      return Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
+    }
 }
