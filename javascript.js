@@ -28,6 +28,36 @@ var heroPackage = {image: "@",
                    damage: {min: 2, max: 5}};
 var behaviorList = {simpleAI: SimpleAI, blindAI: BlindAI}
 
+var monster1 = {image: "A",
+                name: "Aidan",
+                health: {},
+                damage: {}};
+
+var monster2 = {image: "D",
+                name: "Dakota",
+                health: {},
+                damage: {}};
+
+var monster3 = {image: "J",
+                name: "Jake",
+                health: {},
+                damage: {}};
+
+var monster4 = {image: "K",
+                name: "Kade",
+                health: {},
+                damage: {}};
+
+var monster5 = {image: "L",
+                name: "La Morie",
+                health: {},
+                damage: {}};
+
+var monster6 = {image: "M",
+                name: "Memphis",
+                health: {},
+                damage: {}};
+
 var gameState = 1; // need to reduce the number of variables here.
 var interact = false;
 var interactCell = null;
