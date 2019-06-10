@@ -2,7 +2,7 @@ class Weapon extends Item {
 
   constructor(image, name, damage, value){
     super(image, name, "weapon", 30);
-    this._damage = Utils.typeCheck(damage, "obj", "Weapom constructor: damage");;
+    this._damage = Utils.typeCheck(damage, "obj", "Weapon constructor: damage");;
     this._value = Utils.typeCheck(value, "int", "Weapon constructor: value");
   }
 

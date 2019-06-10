@@ -26,6 +26,7 @@ var heroPackage = {image: "@",
                    name: "Derf",
                    health: {max: 10, current: 10},
                    damage: {min: 2, max: 5}};
+var behaviorList = {simpleAI: SimpleAI, blindAI: BlindAI}
 
 var gameState = 1; // need to reduce the number of variables here.
 var interact = false;
@@ -44,6 +45,8 @@ drawMap();
 return: none. Simply an event handler to redraw the current map display.
 */
 function drawMap(){ ctx.innerHTML = dungeon.displayDungeon(); }
+
+function update(){ dungeon.map.update(dungeon); }
 
 /* newMap(conditions)
 @param conditions: {object} a mapPackage object.
@@ -139,6 +142,7 @@ function moveHandler(keyUp){
       textUpdates.innerHTML = dungeon.hero.name + " moves " + checkCell.name + ".";
       delete checkCell.name;
       dungeon.hero.location = checkCell;
+      update();
     }
     else { textUpdates.innerHTML = dungeon.hero.name + " runs into something!"; }
     drawMap();

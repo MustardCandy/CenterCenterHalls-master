@@ -50,6 +50,31 @@ class Cell{
     }
   }
 
+  /* update(dungeon, location)
+  @param dungeon: {object} the dungeon object
+  @param location: {object} the location of this cell
+  */
+  update(dungeon, location){
+    for (var i = 0; i < this.inventory.length; i++) {
+      if(this.inventory[i].type == "monster" && this.inventory[i].moved == false){
+        this.inventory[i].moved = true;
+        var behavior = this.inventory[i].behavior;
+        behaviorList[behavior].update(dungeon, location);
+      }
+      // else.. cell stuff if needed;
+    }
+  }
+
+  /* reset()
+  resets the cell
+  */
+  reset(){
+    for (var i = 0; i < this.inventory.length; i++) {
+      if(this.inventory[i].type === "monster"){ this.inventory[i].moved = false; }
+      // else.. other cell maintainence
+    }
+  }
+
   get name(){ return this._name; }
   set name(str){ this._name = Utils.typeCheck(str, "str", "Cell.name"); }
 
@@ -92,6 +117,7 @@ class Cell{
     }
     return list;
   }
+
 
   toString(){
     if(this.inventory.length > 0){ // check for higest item.index thing in interval
