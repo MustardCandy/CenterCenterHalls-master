@@ -205,6 +205,22 @@ class Map{
     return returnArray;
   }
 
+  /* update(dungeon)
+  @param dungeon: {object} the dungeon object
+  */
+  update(dungeon){
+    for (var y = 0; y < this.cells.length; y++) {
+      for (var x = 0; x < this.cells[y].length; x++) {
+        this.cells[y][x].update(dungeon, {x: x, y: y});
+      }
+    }
+    for (var y = 0; y < this.cells.length; y++) {
+      for (var x = 0; x < this.cells[y].length; x++) {
+        this.cells[y][x].reset();
+      }
+    }
+  }
+
   set name(str){ this._name = Utils.typeCheck(str, "str", "Map.name"); }
   get name(){ return this._name; }
 

@@ -256,7 +256,7 @@ class Utils {
   }
 
   /* coordinateMorphs(coordinates, type="all"):
-  @param type: {string} should be "cardinal", "diagonal", or "all";
+  @param type: {string} should be "base", "diagonal", or "all";
   @return {array} an array of x & y keyed objects for morphing a
   */
   static coordinateMorphs(type="all"){
@@ -265,24 +265,45 @@ class Utils {
     if (type == "base") { return baseCases; }
     if (type == "diagonal") {return diagCases; }
     else{ return baseCases.concat(diagCases); }
-  }
-
-  /* coordinateIndexOf(coordinate, array);
-  @param coordinate: {object} an x and y keyed object
-  @param array: {array} an array of x and y keyed obejcts
-  @return: {integer} the index of the object in the array
-  */
-  static coordinateIndexOf(coordinate, array){
-    for (var i = 0; i < array.length; i++) {
-      if(array[i].x == coordinate.x && array[i].y == coordinate.y) { return i; }
     }
-    return -1;
-  }
 
-  static shift(val){
-    if (val===0) {
-      return 0;
+    /* coordinateIndexOf(coordinate, array);
+    @param coordinate: {object} an x and y keyed object
+    @param array: {array} an array of x and y keyed obejcts
+    @return: {integer} the index of the object in the array
+    */
+    static coordinateIndexOf(coordinate, array){
+      for (var i = 0; i < array.length; i++) {
+        if(array[i].x == coordinate.x && array[i].y == coordinate.y) { return i; }
+      }
+      return -1;
     }
-    return val/Math.abs(val);
-  }
+
+    /* shift(value)
+    @param value: {intiger} a number to be returned as a value from -1 to 1
+    */
+    static shift(value){
+      if(value == 0){ return 0;}
+      return value/Math.abs(value);
+    }
+
+    /* coordinateHypo(start, end)
+    @param start: {object} an x & y keyed starting coordinate
+    @param end: {object} an x & y keyed ending coordinate
+    @return: {int} a value for the Hypotenuse
+    */
+    static coordinateHypo(start, end){ // may need to minus 1 from these for hero loc
+      var xVal = Math.max(start.x, end.x) - Math.min(start.x, end.x);
+      var yVal = Math.max(start.y, end.y) - Math.min(start.y, end.y);
+      return Math.sqrt((xVal * xVal) + (yVal * yVal));
+    }
+
+    /* coordinateHeur(start, end)
+    @param start: {object} an x & y keyed starting coordinate
+    @param end: {object} an x & y keyed ending coordinate
+    @return: {int} a value for the Manhattab distance heuristic
+    */
+    static coordinateHeur(start, end){
+      return Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
+    }
 }

@@ -13,10 +13,10 @@ it should also have an .attack getter that returns a number from min to max from
     this._damage = Utils.typeCheck(damage, "obj", "Monster constructor: damage");
     this._behavior = Utils.typeCheck(behavior, "str", "Monster constructor: behavior");
     this._inventory = [];
+    this._moved = false;
   }
 
   add(object){ Utils.typeCheck(object, "object", "Monster.add"); }
-  
   remove(name){
     for (var i = 0; i < this.inventory.length; i++) {
       if(this.inventory[i].name == name){ this.inventory.splice(i, 1); }
@@ -37,6 +37,8 @@ it should also have an .attack getter that returns a number from min to max from
   get inventory(){ return this._inventory; }
   set inventory(array) {this._inventory = Utils.typeCheck(array, "array", "Monster.inventory"); }
 
+  get moved(){ return this._moved; }
+  set moved(boolean) {this._moved = Utils.typeCheck(boolean, "bool", "Monster.inventory"); }
 
 
 }

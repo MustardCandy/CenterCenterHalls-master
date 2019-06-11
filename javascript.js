@@ -26,6 +26,13 @@ var heroPackage = {image: "@",
                    name: "Derf",
                    health: {max: 10, current: 10},
                    damage: {min: 2, max: 5}};
+var behaviorList = {simpleAI: SimpleAI, blindAI: BlindAI}
+var monsters = {1: {image: "A", name: "Aidan", health: 1, damage: 1, behavior: "SimpleAI"},
+                2: {image: "&", name: "Kade", health: 5, damage: 4, behavior: "BlindAI"},
+                3: {image: "$", name: "Jake", health: 4, damage: 5, behavior: "BlindAI"},
+                4: {image: "D", name: "Dakota", health: 3, damage: 3, behavior: "SimpleAI"},
+                5: {image: "M", name: "Memphis", health: 2, damage: 2, behavior: "SimpleAI"},
+                6: {image: "+", name: "LaMorie", health: 10, damage: 10, behavior: "blindAI"}};
 
 var gameState = 1; // need to reduce the number of variables here.
 var interact = false;
@@ -44,6 +51,8 @@ drawMap();
 return: none. Simply an event handler to redraw the current map display.
 */
 function drawMap(){ ctx.innerHTML = dungeon.displayDungeon(); }
+
+function update(){ dungeon.map.update(dungeon); }
 
 /* newMap(conditions)
 @param conditions: {object} a mapPackage object.
@@ -139,6 +148,7 @@ function moveHandler(keyUp){
       textUpdates.innerHTML = dungeon.hero.name + " moves " + checkCell.name + ".";
       delete checkCell.name;
       dungeon.hero.location = checkCell;
+      update();
     }
     else { textUpdates.innerHTML = dungeon.hero.name + " runs into something!"; }
     drawMap();
