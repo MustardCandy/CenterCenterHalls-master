@@ -58,7 +58,7 @@ function update(){ dungeon.map.update(dungeon); }
 @param conditions: {object} a mapPackage object.
 @return: none.
 */
-function newMap(conditions){
+function newMap(conditions, package){
   dungeon.initalizeDungeon(conditions);
   drawMap();
 }
