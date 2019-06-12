@@ -8,6 +8,25 @@ class SimpleAI {
   /* _getMonster(dungeon, coordinates)
     gets a monster from the coordinates
   */
+
+  static _nextToHero(dungeon, coordinates){
+    var hero = dungeon.hero.location;
+    var monster = coordinates;
+    var xdif = Math.abs(hero.x - monster.x);
+    var ydif = Math.abs(hero.y - monster.y);
+    if (xdif <= 1 && ydif <= 1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  static _monsterDamage(dungeon, coordinates){
+    var monster = this._getMonster(dungeon, coordinates);
+    dungeon.hero.struck = monster.attack;
+    dungeon.map.cell[coordinates.y][coordinates.x].add(monster);
+  }
+
   static _getMonster(dungeon, coordinates){
     var cell = dungeon.map.cell[coordinates.y][coordinates.x];
     for (var i = 0; i < cell.inventory.length; i++) { // this should never not return
@@ -23,10 +42,14 @@ class SimpleAI {
     var coordinate = this.makePath(start, dungeon.hero.location);
     var distance = Utils.coordinateHypo(start, dungeon.hero.location);
     if(this.getMove(dungeon, coordinate) && distance < max){
-      dungeon.map.cell[coordinate.y][coordinate.x].add(this._getMonster(dungeon, start));
+      if(this._nextToHero(dungeon, start)){
+        this._monsterDamage(dungeon, start);
+      }else{
+        dungeon.map.cell[coordinate.y][coordinate.x].add(this._getMonster(dungeon, start));
+      }
       return true;
     }
-    else { return false; }
+    else{return false;}
   }
 
   /*  makePath(start, end)
