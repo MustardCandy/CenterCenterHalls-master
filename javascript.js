@@ -28,35 +28,15 @@ var heroPackage = {image: "@",
                    damage: {min: 2, max: 5}};
 var behaviorList = {simpleAI: SimpleAI, blindAI: BlindAI}
 
-var monster1 = {image: "A",
-                name: "Aidan",
-                health: {1},
-                damage: {3}};
-
-var monster2 = {image: "D",
-                name: "Dakota",
-                health: {5},
-                damage: {2}};
-
-var monster3 = {image: "J",
-                name: "Jake",
-                health: {8},
-                damage: {5}};
-
-var monster4 = {image: "K",
-                name: "Kade",
-                health: {9},
-                damage: {6}};
-
-var monster5 = {image: "L",
-                name: "La Morie",
-                health: {9},
-                damage: {8}};
-
-var monster6 = {image: "M",
-                name: "Memphis",
-                health: {7},
-                damage: {4}};
+var monsters = {
+  1:{image:"A", name:"Aidan", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  2:{image:"D", name:"Dakota", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  3:{image:"J", name:"Jake", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  4:{image:"K", name:"Kade", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  5:{image:"L", name:"La Morie", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  6:{image:"M", name:"Memphis", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  length:6
+}
 
 var gameState = 1; // need to reduce the number of variables here.
 var interact = false;
