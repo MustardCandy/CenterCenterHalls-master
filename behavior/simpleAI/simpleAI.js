@@ -23,7 +23,11 @@ class SimpleAI {
     var coordinate = this.makePath(start, dungeon.hero.location);
     var distance = Utils.coordinateHypo(start, dungeon.hero.location);
     if(this.getMove(dungeon, coordinate) && distance < max){
-      dungeon.map.cell[coordinate.y][coordinate.x].add(this._getMonster(dungeon, start));
+      if (this._heroLoc(dungeon, start)) {
+        this.monsterAttack(dungeon, start);
+      } else {
+        dungeon.map.cell[coordinate.y][coordinate.x].add(this._getMonster(dungeon, start));
+      }
       return true;
     }
     else { return false; }
@@ -44,12 +48,20 @@ class SimpleAI {
     return dungeon.map.cell[coordinates.y][coordinates.x].open;
   }
 
-  static heroLoc(dungeon, coordinates){
-      var hero = dungeon.map.hero;
-      var xChange = dungeon.x - hero.x;
-      var yChange = dungeon.y - hero.y;
+  static monsterAttack(dungeon, coordinates){
+    var monster = this._getMonster(dungeon, coordinates);
+    dungeon.hero.struck = monster.attack;
+    dungeon.map.cell[coordinates.y][coordinates.x].add(monster);
+  }
+
+  static _heroLoc(dungeon, coordinates){
+      var hero = dungeon.hero.location;
+      var xChange = Math.abs(hero.x - coordinates.x);
+      var yChange = Math.abs(hero.y - coordinates.y);
       if (xChange <= 1 && yChange <= 1) {
-        //attack that sun-of-a-gun hero
+        return true;
+      } else {
+        return false;
     }
   }
 
