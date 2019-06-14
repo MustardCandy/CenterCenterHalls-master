@@ -72,6 +72,22 @@ function addHero(package){
   drawMap();
 }
 
+function openRoom(dungeon){
+  var hero = dungeon.hero.location;
+  var room = dungeon.map.room;
+  for (var i = 0; i < room.length; i++) {
+    console.log(room[i]);
+    for (var j = 0; j < room[i].length; j++) {
+      console.log([i][j]);
+      if (room[i][j].coordinates == hero) {
+      }
+    }
+  }
+}
+
+function addMonster(monsters,dungeon){
+
+}
 
 /* --- Key Event Methods ---------------------------------------------------- */
 // TODO:  move these to a new class called UserInterface or somesuch
