@@ -76,10 +76,9 @@ function openRoom(dungeon){
   var hero = dungeon.hero.location;
   var room = dungeon.map.room;
   for (var i = 0; i < room.length; i++) {
-    console.log(room[i]);
-    for (var j = 0; j < room[i].length; j++) {
-      console.log([i][j]);
-      if (room[i][j].coordinates == hero) {
+    for (var j = 0; j < room[i].coordinates.length; j++) {
+      console.log(room[i][j]);
+      if (room == hero) {
       }
     }
   }
