@@ -29,12 +29,12 @@ var heroPackage = {image: "@",
 var behaviorList = {simpleAI: SimpleAI, blindAI: BlindAI}
 
 var monsters = {
-  1:{image:"A", name:"Aidan", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
-  2:{image:"D", name:"Dakota", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
-  3:{image:"J", name:"Jake", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
-  4:{image:"K", name:"Kade", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
-  5:{image:"L", name:"La Morie", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
-  6:{image:"M", name:"Memphis", health:1, damage:{min:5, max:10}, behavior:"simpleAI"},
+  1:{image:"A", name:"Aidan", health:1, damage:{min:1, max:2}, behavior:"simpleAI"},
+  2:{image:"D", name:"Dakota", health:6, damage:{min:4, max:9}, behavior:"simpleAI"},
+  3:{image:"J", name:"Jake", health:7, damage:{min:5, max:10}, behavior:"simpleAI"},
+  4:{image:"K", name:"Kade", health:3, damage:{min:2, max:7}, behavior:"simpleAI"},
+  5:{image:"L", name:"La Morie", health:9, damage:{min:9, max:16}, behavior:"simpleAI"},
+  6:{image:"M", name:"Memphis", health:6, damage:{min:8, max:10}, behavior:"simpleAI"},
   length:6
 }
 
